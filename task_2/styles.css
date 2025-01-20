@@ -1,0 +1,205 @@
+html {
+    background-image: url("media/background/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+header {
+    margin-top: 5%;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+     display: none;
+     transition: opacity 0.3s ease-in, height 0.3s ease-in;
+ }
+
+
+.title {
+    display: block;
+}
+
+header label {
+    font-size: 800%;
+    color: white;
+    font-family: BebasNeuePro, serif;
+    text-decoration: none;
+    background: none;
+    border: none;
+}
+
+.dropdown_menu {
+    width: 80vw;
+    background-image: url("media/background/dropdown_bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 8px;
+
+    transition: opacity 0.3s ease-in;
+    opacity: 0;
+}
+
+.choose_your_challenger {
+    width: 100%;
+    height: 10%;
+    font-family: BebasNeuePro, serif;
+    font-size: 300%;
+    color: white;
+}
+
+.labels {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5%;
+}
+
+.characters {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.character_row {
+    margin-bottom: 20%;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+    padding: 2%;
+    align-items: center;
+}
+
+.character_row label {
+     font-size: 400%;
+     color: white;
+     font-family: BebasNeuePro, serif;
+     text-decoration: none;
+     border: none;
+ }
+
+
+.character_background {
+    width: 133px;
+    height: 190px;
+    background-image: url("media/characters/char_bg.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    transition: background 0.5s ease;
+    position: relative;
+}
+
+.character_background img {
+    margin: 0;
+}
+
+.character_overview {
+    width: 65%;
+    height: 100%;
+    display: none;
+}
+
+.character_info {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+}
+
+.character_info h1 {
+    color: #dd1d5b;
+    font-family: BebasNeuePro, serif;
+    font-size: 400%;
+    text-align: justify;
+}
+
+.character_info h2 {
+    color: white;
+    font-family: BebasNeuePro, serif;
+    font-size: 200%;
+}
+
+.character_info p {
+    color: white;
+    font-family: BebasNeuePro, serif;
+    font-size: 100%;
+}
+
+.text_highlight {
+    color: #dd1d5b;
+    font-family: BebasNeuePro, serif;
+    font-size: 100%;
+}
+
+.bryan:hover {
+    background-image: url("media/characters/bryan/bg-Fury.png");
+}
+
+#bryan_check:checked ~ .labels label[for="bryan_check"] {
+    background-image: url("media/characters/bryan/bg-Fury.png");
+    transform: scale(1.1);
+}
+
+#bryan_check:checked ~ #bryan_div {
+    display: flex;
+    justify-content: center;
+}
+
+.reina:hover {
+    background-image: url("media/characters/reina/bg-Reina.png");
+}
+
+#reina_check:checked ~ .labels label[for="reina_check"] {
+    background-image: url("media/characters/reina/bg-Reina.png");
+    transform: scale(1.1);
+}
+
+#reina_check:checked ~ #reina_div {
+    display: flex;
+    justify-content: center;
+}
+
+.dragunov:hover {
+    background-image: url("media/characters/dragunov/bg-Sergei-Dragunov.png");
+}
+
+#dragunov_check:checked ~ .labels label[for="dragunov_check"] {
+    background-image: url("media/characters/dragunov/bg-Sergei-Dragunov.png");
+    transform: scale(1.1);
+}
+#dragunov_check:checked ~ #dragunov_div {
+    display: flex;
+    justify-content: center;
+}
+
+.yoshimitsu:hover {
+    background-image: url("media/characters/yoshimitsu/bg-Yoshimitsu.png");
+}
+
+#yoshimitsu_check:checked ~ .labels label[for="yoshimitsu_check"] {
+    background-image: url("media/characters/yoshimitsu/bg-Yoshimitsu.png");
+    transform: scale(1.1);
+}
+#yoshimitsu_check:checked ~ #yoshimitsu_div {
+    display: flex;
+    justify-content: center;
+}
+
+
+@font-face {
+    font-family: BebasNeuePro;
+    src: url(media/fonts/BebasNeuePro.ttf);
+}

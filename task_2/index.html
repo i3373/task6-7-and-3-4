@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8"/>
+    <title>Мордобой 8</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <link rel="icon" type="image/png" href="/media/icon/logo.png">
+</head>
+<body>
+<header>
+
+    <input id="open" type="checkbox" class="dropdown_button" name="dropdown_button" onclick="showDropdown()"/>
+
+    <div class="title">
+        <img src="media/svgs/before.svg" height="70" width="102" alt="">
+        <label for="open">Fighters</label>
+        <img src="media/svgs/after.svg" height="70" width="102" alt="">
+    </div>
+
+
+    <div class="dropdown_menu" id="dropdown">
+        <div class="choose_your_challenger">
+            <p>Choose Your Challenger!</p>
+        </div>
+            <section class="characters">
+
+                <input type="radio" id="kazuya_check" name="character" checked/>
+                <input type="radio" id="jin_check" name="character"/>
+                <input type="radio" id="bryan_check" name="character"/>
+                <input type="radio" id="yoshimitsu_check" name="character"/>
+                <input type="radio" id="reina_check" name="character"/>
+                <input type="radio" id="dragunov_check" name="character"/>
+                <div class="labels">
+                    <label for="kazuya_check" class="character_background" onclick="showDropdownDiv('kazuya_div', 'kazuya_check')"
+                           onmouseover="overMouse(this, 'media/characters/kazuya/bg-Kazuya.png')" onmouseout="outMouse(this, 'kazuya_check')">
+                        <img src="media/characters/kazuya/kazuya_icon.png" height="190" width="133">
+                    </label>
+                    <label for="jin_check" class="character_background" onclick="showDropdownDiv('jin_div', 'jin_check')"
+                           onmouseover="overMouse(this, 'media/characters/jin/bg_jin.png')" onmouseout="outMouse(this, 'jin_check')">
+                        <img src="media/characters/jin/Thumbnail-Jin.png" height="190" width="133">
+                    </label>
+                    <label for="bryan_check" class="character_background" onclick="showDropdownDiv('bryan_div', 'bryan_check')"
+                           onmouseover="overMouse(this, 'media/characters/bryan/bg-Fury.png')" onmouseout="outMouse(this, 'bryan_check')">
+                        <img src="media/characters/bryan/Thumbnail-Bryan-Fury.png" height="190" width="133">
+                    </label>
+                    <label for="yoshimitsu_check" class="character_background" onclick="showDropdownDiv('yoshimitsu_div', 'yoshimitsu_check')"
+                           onmouseover="overMouse(this, 'media/characters/yoshimitsu/bg-Yoshimitsu.png')" onmouseout="outMouse(this, 'yoshimitsu_check')">
+                        <img src="media/characters/yoshimitsu/yoshimitsu_icon.png" height="190" width="133">
+                    </label>
+                    <label for="reina_check" class="character_background" onclick="showDropdownDiv('reina_div', 'reina_check')"
+                           onmouseover="overMouse(this, 'media/characters/reina/bg-Reina.png')" onmouseout="outMouse(this, 'reina_check')">
+                        <img src="media/characters/reina/Thumbnail-Reina.png" height="190" width="133">
+                    </label>
+                    <label for="dragunov_check" class="character_background dragunov" onclick="showDropdownDiv('dragunov_div', 'dragunov_check')"
+                           onmouseover="overMouse(this, 'media/characters/dragunov/bg-Sergei-Dragunov.png')" onmouseout="outMouse(this, 'dragunov_check')">
+                        <img src="media/characters/dragunov/Thumbnail-Sergei-Dragunov.png" height="190" width="133">
+                    </label>
+                </div>
+                <div class="character_overview" id="kazuya_div">
+                    <div class="character_info">
+                        <h1>KAZUYA MISHIMA</h1>
+                        <h2>Cold-Blooded Oppressor</h2>
+                        <p>
+                            Country of origin: <span
+                            class="text_highlight">None (Relinquished his Japanese nationality)</span>
+                        </p>
+
+                        <p>
+                            Fighting style: <span class="text_highlight">Mishima-Style Fighting Karate</span>
+                        </p>
+
+                        <p>
+
+                            Kazuya Mishima used the full extent of his devil power and G Corp to try and take over
+                            the
+                            world. After defeating his father Heihachi Mishima, Kazuya doubled down on his efforts
+                            to
+                            take down the leaderless Mishima Zaibatsu. This brutal war divided the world in two, and
+                            in
+                            the end G Corp came out on top. However, the conglomerate showed no signs of relenting,
+                            and
+                            continued to dominate the world with an iron fist.
+                        </p>
+
+                    </div>
+                    <img src="media/characters/kazuya/kazuya.png" width="750" height="883" alt="kazuya">
+                </div>
+                <div class="character_overview" id="jin_div">
+                    <div class="character_info">
+                        <h1>JIN KAZAMA</h1>
+                        <h2>Lightning of Fate</h2>
+                        <p>
+                            Country of origin: <span
+                            class="text_highlight">Japan</span>
+                        </p>
+
+                        <p>
+                            Fighting style: <span class="text_highlight">Karate</span>
+                        </p>
+
+                        <p>
+                            Despising the cursed blood that ran through his veins, Jin Kazama sought to bring an end to
+                            the devil bloodline. He joined forces with Lars Alexandersson, and together they prepared to
+                            commence Operation Lightning, a plan to eliminate the other bearer of the devil gene, Kazuya
+                            Mishima. Jin had once plunged the world into chaos in order to resurrect Azazel, the devil
+                            gene's progenitor.
+                        </p>
+
+                    </div>
+                    <img src="media/characters/jin/jin.png" width="750" height="883" alt="kazuya">
+                </div>
+                <div class="character_overview" id="bryan_div">
+                    <div class="character_info">
+                        <h1>BRYAN FURY</h1>
+                        <h2>Harbinger of Chaos</h2>
+                        <p>
+                            Country of origin: <span
+                            class="text_highlight">U.S.A.</span>
+                        </p>
+
+                        <p>
+                            Fighting style: <span class="text_highlight">Kickboxing</span>
+                        </p>
+
+                        <p>
+                            Obtaining the perpetual generator, Bryan Fury became the ultimate replicant, using this
+                            endless source of energy to wreak havoc. Even after the battle between G Corp. and Mishima
+                            Zaibatsu concluded, Bryan continued waging acts of war around the globe, and quickly became
+                            the target of international police organizations. Something suddenly changed in Bryan when
+                            he confronted the elite counter terrorist unit of the international police agency he
+                            formerly belonged to in an urban conflict. Either a result of overuse in countless
+                            conflicts, or from a lingering memory of his mortal body, his perpetual generator overheated
+                            during battle. A surge in feelings of power and pleasure burned their imprint into his
+                            brain, turning it crimson red. When he awoke, he was alone in the devastated aftermath he
+                            had likely caused. "Are you really the infamous Bryan Fury..?" From under the rubble, the
+                            voice of someone who appeared to know him said, but was abruptly interrupted by the sounds
+                            of pummeling fists and maniacal laughter.
+                        </p>
+
+                    </div>
+                    <img src="media/characters/bryan/bryan.png" width="750" height="883" alt="kazuya">
+                </div>
+                <div class="character_overview" id="yoshimitsu_div">
+                    <div class="character_info">
+                        <h1>YOSHIMITSU</h1>
+                        <h2>Mechanized Space Ninja</h2>
+                        <p>
+                            Country of origin: <span
+                            class="text_highlight">None (formely Japan)</span>
+                        </p>
+
+                        <p>
+                            Fighting style: <span class="text_highlight">Advanced Manji Ninjutsu</span>
+                        </p>
+
+                        <p>
+
+                            Yoshimitsu is an inheritor of the Manji Ninjutsu and current head of the Manji Clan, a group
+                            of chivalrous thieves active since the Sengoku period. Six months ago, Yoshimitsu accepted a
+                            request from an investor of the refugee relief project. The task was to find archives that
+                            contained information on the past doings of the Mishima Zaibatsu.
+                        </p>
+                        <p>
+                            After analyzing information that his clan members had gathered, Yoshimitsu is led to an old,
+                            underground cave. Legend has it that the Mishimas once used it for exorcisms.
+                        </p>
+                        <p>
+                            He scans the area using the technology built into his reinforced armor and continues down a
+                            dilapidated path. In the recesses of the cave, Yoshimitsu discovers the archives he has been
+                            looking for
+                        </p>
+
+                    </div>
+                    <img src="media/characters/yoshimitsu/Yoshimitsu_new.png" width="750" height="883" alt="kazuya">
+                </div>
+                <div class="character_overview" id="reina_div">
+                    <div class="character_info">
+                        <h1>REINA</h1>
+                        <h2>Purple Lightning</h2>
+                        <p>
+                            Country of origin: <span
+                            class="text_highlight">Unknown</span>
+                        </p>
+
+                        <p>
+                            Fighting style: <span class="text_highlight">Unknown</span>
+                        </p>
+
+                        <p>
+                            Meet Reina, the mysterious fighter who uses lightning-quick moves to overwhelm anyone who
+                            dares face her. Other than the fact she's a student of the Mishima Polytechnical School,
+                            everything else about her is shrouded in mystery.
+                        </p>
+
+                    </div>
+                    <img src="media/characters/reina/reina.png" width="750" height="883" alt="kazuya">
+                </div>
+                <div class="character_overview" id="dragunov_div">
+                    <div class="character_info">
+                        <h1>SERGEI DRAGUNOV</h1>
+                        <h2>White Reaper</h2>
+                        <p>
+                            Country of origin: <span
+                            class="text_highlight">Russia</span>
+                        </p>
+
+                        <p>
+                            Fighting style: <span class="text_highlight">Commando Sambo</span>
+                        </p>
+
+                        <p>
+                            Sergei Dragunov is a user of Commando Sambo and is feared for his alias "The White Angel of
+                            Death," a name he earned through his sheer and overwhelming combat prowess.
+                        </p>
+                        <p>
+                            While the world was embroiled in the armed conflict between the Mishima Zaibatsu and G Corp,
+                            Dragunov joined the King of Iron Fist Tournament with a certain goal in mind.
+                        </p>
+                        <p>
+                            However, midway through the tournament, the tournament's organizer, Heihachi Mishima, goes
+                            missing, bringing the competition to a halt.
+                            Dragunov returns home, and in recognition of his dedication to his work, is granted an
+                            extended leave for the first time in his life.
+                        </p>
+
+                    </div>
+                    <img src="media/characters/dragunov/Sergei-Dragunov_new.png" width="750" height="883" alt="kazuya">
+                </div>
+            </section>
+    </div>
+
+    <script>
+        let previous = "kazuya_check";
+        let previousDiv = "kazuya_div";
+        document.getElementById(previousDiv).style.display = "flex";
+        document.querySelector(`label[for="${previous}"]`).style.backgroundImage = "url('media/characters/kazuya/bg-Kazuya.png')";
+        document.querySelector(`label[for="${previous}"]`).style.transform = "scale(1.1)"
+
+        function showDropdown() {
+            const checkBox = document.getElementById("open");
+            const dropdownContent = document.getElementById("dropdown");
+            if (checkBox.checked === true) {
+                dropdownContent.style.opacity = "1";
+            } else {
+                dropdownContent.style.opacity = "0";
+            }
+        }
+
+        function showDropdownDiv(div, id) {
+            if (previous === id) return;
+            const dropdownContent = document.getElementById(div);
+            document.getElementById(previousDiv).style.display = "none";
+            dropdownContent.style.display = "flex";
+            document.querySelector(`label[for="${id}"]`).style.transform = "scale(1.2)"
+            document.querySelector(`label[for="${previous}"]`).style.backgroundImage = "url(\"media/characters/char_bg.png\")";
+            document.querySelector(`label[for="${previous}"]`).style.transform = "scale(1)"
+            previous = id;
+            previousDiv = div;
+        }
+
+        function overMouse(label, bg){
+            label.style.transform = "scale(1.1)";
+            label.style.backgroundImage = "url(" + bg + ")";
+        }
+
+        function outMouse(label, id){
+            const checkBox = document.getElementById(id);
+            if (checkBox.checked === false) {
+                label.style.transform = "scale(1)";
+                label.style.backgroundImage = "url(\"media/characters/char_bg.png\")";
+            }
+        }
+    </script>
+
+</header>
+</body>
+</html>
