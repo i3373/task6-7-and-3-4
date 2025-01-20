@@ -144,61 +144,6 @@ header label {
     font-size: 100%;
 }
 
-.bryan:hover {
-    background-image: url("media/characters/bryan/bg-Fury.png");
-}
-
-#bryan_check:checked ~ .labels label[for="bryan_check"] {
-    background-image: url("media/characters/bryan/bg-Fury.png");
-    transform: scale(1.1);
-}
-
-#bryan_check:checked ~ #bryan_div {
-    display: flex;
-    justify-content: center;
-}
-
-.reina:hover {
-    background-image: url("media/characters/reina/bg-Reina.png");
-}
-
-#reina_check:checked ~ .labels label[for="reina_check"] {
-    background-image: url("media/characters/reina/bg-Reina.png");
-    transform: scale(1.1);
-}
-
-#reina_check:checked ~ #reina_div {
-    display: flex;
-    justify-content: center;
-}
-
-.dragunov:hover {
-    background-image: url("media/characters/dragunov/bg-Sergei-Dragunov.png");
-}
-
-#dragunov_check:checked ~ .labels label[for="dragunov_check"] {
-    background-image: url("media/characters/dragunov/bg-Sergei-Dragunov.png");
-    transform: scale(1.1);
-}
-#dragunov_check:checked ~ #dragunov_div {
-    display: flex;
-    justify-content: center;
-}
-
-.yoshimitsu:hover {
-    background-image: url("media/characters/yoshimitsu/bg-Yoshimitsu.png");
-}
-
-#yoshimitsu_check:checked ~ .labels label[for="yoshimitsu_check"] {
-    background-image: url("media/characters/yoshimitsu/bg-Yoshimitsu.png");
-    transform: scale(1.1);
-}
-#yoshimitsu_check:checked ~ #yoshimitsu_div {
-    display: flex;
-    justify-content: center;
-}
-
-
 @font-face {
     font-family: BebasNeuePro;
     src: url(media/fonts/BebasNeuePro.ttf);
