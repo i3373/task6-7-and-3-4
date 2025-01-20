@@ -1,9 +1,8 @@
 html {
-    min-width: 1920px;
-    min-height: 1700px;
-    background-image: url('media/background/background.jpg');
+    background-image: url("media/background/background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 }
 
 header {
@@ -15,6 +14,12 @@ header {
     justify-content: center;
     align-items: center;
 }
+
+input {
+     display: none;
+     transition: opacity 0.3s ease-in, height 0.3s ease-in;
+ }
+
 
 .title {
     display: block;
@@ -40,13 +45,12 @@ header label {
     opacity: 0;
 }
 
-#open:checked~div.dropdown_menu {
+#open:checked ~ div.dropdown_menu {
     opacity: 1;
     display: block;
     pointer-events: auto;
     transition: opacity 0.3s ease-in;
 }
-
 
 .choose_your_challenger {
     width: 100%;
@@ -84,7 +88,17 @@ header label {
     padding: 2%;
     align-items: center;
 }
-.character_background{
+
+.character_row label {
+     font-size: 400%;
+     color: white;
+     font-family: BebasNeuePro, serif;
+     text-decoration: none;
+     border: none;
+ }
+
+
+.character_background {
     width: 133px;
     height: 190px;
     background-image: url("media/characters/char_bg.png");
@@ -95,7 +109,7 @@ header label {
     position: relative;
 }
 
-.character_background img{
+.character_background img {
     margin: 0;
 }
 
@@ -103,7 +117,6 @@ header label {
     width: 65%;
     height: 100%;
     display: none;
-
 }
 
 .character_info {
@@ -112,7 +125,6 @@ header label {
     flex-direction: column;
     text-align: justify;
 }
-
 
 .character_info h1 {
     color: #dd1d5b;
@@ -133,22 +145,21 @@ header label {
     font-size: 100%;
 }
 
-.text_highlight{
+.text_highlight {
     color: #dd1d5b;
     font-family: BebasNeuePro, serif;
     font-size: 100%;
 }
 
-.text_highlight:hover{
+.text_highlight:hover {
     color: white;
 }
 
-
-.kazuya:hover{
+.kazuya:hover {
     background-image: url("media/characters/kazuya/bg-Kazuya.png");
 }
 
-#kazuya_check:checked ~ .labels label[for="kazuya_check"]  {
+#kazuya_check:checked ~ .labels label[for="kazuya_check"] {
     background-image: url("media/characters/kazuya/bg-Kazuya.png");
     transform: scale(1.1);
 }
@@ -158,7 +169,7 @@ header label {
     justify-content: center;
 }
 
-.jin:hover{
+.jin:hover {
     background-image: url("media/characters/jin/bg_jin.png");
 }
 
@@ -172,7 +183,7 @@ header label {
     justify-content: center;
 }
 
-.bryan:hover{
+.bryan:hover {
     background-image: url("media/characters/bryan/bg-Fury.png");
 }
 
@@ -186,7 +197,7 @@ header label {
     justify-content: center;
 }
 
-.reina:hover{
+.reina:hover {
     background-image: url("media/characters/reina/bg-Reina.png");
 }
 
@@ -200,7 +211,7 @@ header label {
     justify-content: center;
 }
 
-.dragunov:hover{
+.dragunov:hover {
     background-image: url("media/characters/dragunov/bg-Sergei-Dragunov.png");
 }
 
@@ -213,7 +224,7 @@ header label {
     justify-content: center;
 }
 
-.yoshimitsu:hover{
+.yoshimitsu:hover {
     background-image: url("media/characters/yoshimitsu/bg-Yoshimitsu.png");
 }
 
@@ -225,27 +236,8 @@ header label {
     display: flex;
     justify-content: center;
 }
-.character_background:hover img{
+.character_background:hover img {
     transform: scale(1.1);
-}
-
-.forward {
-    position: absolute;
-    bottom: 0;
-}
-
-.character_row label {
-    font-size: 400%;
-    color: white;
-    font-family: BebasNeuePro, serif;
-    text-decoration: none;
-    border: none;
-}
-
-input {
-    display: none;
-    transition: opacity 0.3s ease-in, height 0.3s ease-in;
-
 }
 
 
