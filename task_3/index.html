@@ -53,7 +53,6 @@
 </header>
 
 <script>
-    // Данные персонажей
     const characters = [
         {
             id: "kazuya",
@@ -64,7 +63,8 @@
             description: "Kazuya Mishima used the full extent of his devil power and G Corp to try and take over the world. After defeating his father Heihachi Mishima, Kazuya doubled down on his efforts to take down the leaderless Mishima Zaibatsu. This brutal war divided the world in two, and in the end G Corp came out on top. However, the conglomerate showed no signs of relenting, and continued to dominate the world with an iron fist.",
             image: "media/characters/kazuya/kazuya_icon.png",
             fullimage: "media/characters/kazuya/kazuya.png",
-            bg: "media/characters/kazuya/bg-Kazuya.png"
+            bg: "media/characters/kazuya/bg-Kazuya.png",
+            chosen: false,
         },
 
         {
@@ -82,7 +82,8 @@
                 "gene's progenitor.",
             image: "media/characters/jin/Thumbnail-Jin.png",
             fullimage: "media/characters/jin/jin.png",
-            bg: "media/characters/jin/bg_jin.png"
+            bg: "media/characters/jin/bg_jin.png",
+            chosen: false,
         },
 
         {
@@ -95,7 +96,8 @@
                 "laughter.",
             image: "media/characters/bryan/Thumbnail-Bryan-Fury.png",
             fullimage: "media/characters/bryan/bryan.png",
-            bg: "media/characters/bryan/bg-Fury.png"
+            bg: "media/characters/bryan/bg-Fury.png",
+            chosen: false,
         },
         {
             id: "yoshimitsu",
@@ -108,6 +110,7 @@
             image: "media/characters/yoshimitsu/yoshimitsu_icon.png",
             fullimage: "media/characters/yoshimitsu/Yoshimitsu_new.png",
             bg: "media/characters/yoshimitsu/bg-Yoshimitsu.png",
+            chosen: false,
         },
         {
             id: "reina",
@@ -119,6 +122,7 @@
             image: "media/characters/reina/Thumbnail-Reina.png",
             fullimage: "media/characters/reina/reina.png",
             bg: "media/characters/reina/bg-Reina.png",
+            chosen: false,
         },
     ];
 
@@ -131,11 +135,12 @@
 
     characters.forEach(character => {
         const charElement = document.createElement("div");
+        charElement.id = character.id + "_icon";
         charElement.className = "character_background";
         charElement.style.backgroundImage = `url(media/characters/char_bg.png)`;
         charElement.addEventListener("mouseover", () => mouseOver(charElement, character));
-        charElement.addEventListener("mouseout", () => mouseOut(charElement));
-        charElement.addEventListener("click", () => displayCharacter(character));
+        charElement.addEventListener("mouseout", () => mouseOut(charElement, character));
+        charElement.addEventListener("click", () => displayCharacter(charElement, character));
 
         charElement.innerHTML = `<img src="${character.image}" alt="${character.name}" height="190"
                 width="133">`;
@@ -143,16 +148,22 @@
     });
 
     function mouseOver(charElement, character) {
+        if (character.chosen) {
+            return
+        }
         charElement.style.backgroundImage = `url(${character.bg})`;
         charElement.style.transform = "scale(1.1)";
     }
 
-    function mouseOut(charElement) {
+    function mouseOut(charElement, character) {
+        if (character.chosen){
+            return
+        }
         charElement.style.backgroundImage = `url(media/characters/char_bg.png)`;
         charElement.style.transform = "scale(1)";
     }
 
-    function displayCharacter(character) {
+    function displayCharacter(charElement, character) {
         characterInfo.innerHTML = `
             <h1>${character.name}</h1>
             <h2>${character.title}</h2>
@@ -162,13 +173,22 @@
         `;
         characterImg.innerHTML = `<img src="${character.fullimage}" alt="${character.name}" width="750"
               height="883">`;
+        character.chosen = true;
+
+        charElement.style.backgroundImage = `url(${character.bg})`;
+        charElement.style.transform = "scale(1.2)";
+
+        for (let i = 0; i < characters.length; i++) {
+            if (characters[i].id !== character.id) {
+                mouseOut(document.getElementById(characters[i].id + "_icon"), characters[i].id)
+                characters[i].chosen = false;
+            }
+        }
 
     }
 
-    // Инициализация первого персонажа
-    displayCharacter(characters[0]);
+    displayCharacter(document.getElementById(characters[0].id + "_icon"), characters[0]);
 
-    // Раскрытие меню
     const dropdownToggle = document.getElementById("dropdown_toggle");
     const dropdownMenu = document.getElementById("dropdown");
 
