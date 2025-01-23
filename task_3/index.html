@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мордобой 8</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <link rel="icon" type="image/png" href="/media/icon/logo.png">
+    <style>
+        /* Общие стили */
+        .title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .characters {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .character_background {
+                width: 90px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="title">
+        <img src="media/svgs/before.svg" height="70" width="102" alt="">
+        <label for="dropdown_toggle">Fighters</label>
+        <img src="media/svgs/after.svg" height="70" width="102" alt="">
+    </div>
+    <input type="checkbox" id="dropdown_toggle"/>
+    <div class="dropdown_menu" id="dropdown">
+        <div id="greet"></div>
+        <div class="characters">
+            <div class="labels" id="characterList"></div>
+            <div class="character_overview">
+                <div class="character_info" id="characterInfo"></div>
+                <div class="character" id="characterImg"></div>
+            </div>
+        </div>
+
+    </div>
+</header>
+
+<script>
+    // Данные персонажей
+    const characters = [
+        {
+            id: "kazuya",
+            name: "KAZUYA MISHIMA",
+            title: "Cold-Blooded Oppressor",
+            country: "None (Relinquished his Japanese nationality)",
+            style: "Mishima-Style Fighting Karate",
+            description: "Kazuya Mishima used the full extent of his devil power and G Corp to try and take over the world. After defeating his father Heihachi Mishima, Kazuya doubled down on his efforts to take down the leaderless Mishima Zaibatsu. This brutal war divided the world in two, and in the end G Corp came out on top. However, the conglomerate showed no signs of relenting, and continued to dominate the world with an iron fist.",
+            image: "media/characters/kazuya/kazuya_icon.png",
+            fullimage: "media/characters/kazuya/kazuya.png",
+            bg: "media/characters/kazuya/bg-Kazuya.png"
+        },
+
+        {
+            id: "jin",
+            name: "JIN KAZAMA",
+            title: "Lightning of Fate",
+            country: "Japan",
+            style: "Karate",
+            description: "Despising the cursed blood that ran through his veins, Jin " +
+                "Kazama sought to bring an end to the devil bloodline. He joined " +
+                "forces with Lars Alexandersson, and together they prepared to " +
+                "commence Operation Lightning, a plan to eliminate the other " +
+                "bearer of the devil gene, Kazuya Mishima. Jin had once plunged " +
+                "the world into chaos in order to resurrect Azazel, the devil " +
+                "gene's progenitor.",
+            image: "media/characters/jin/Thumbnail-Jin.png",
+            fullimage: "media/characters/jin/jin.png",
+            bg: "media/characters/jin/bg_jin.png"
+        },
+
+        {
+            id: "bryan",
+            name: "BRYAN CRANSTON",
+            title: "Harbinger of Chaos",
+            country: "U.S.A.",
+            style: "Kickboxing",
+            description: "Obtaining the perpetual generator, Bryan Fury became the ultimate replicant, using this endless source of energy to wreak havoc. Even after the battle between G Corp. and Mishima Zaibatsu concluded, Bryan continued waging acts of war around the globe, and quickly became the target of international police organizations. Something suddenly changed in Bryan when he confronted the elite counter terrorist unit of the international police agency he formerly belonged to in an urban conflict. Either a result of overuse in countless conflicts, or from a lingering memory of his mortal body, his perpetual generator overheated during battle. A surge in feelings of power and pleasure burned their imprint into his brain, turning it crimson red. When he awoke, he was alone in the devastated aftermath he had likely caused. \"Are you really the infamous Bryan Fury..?\" From under the rubble, the voice of someone who appeared to know him said, but was abruptly interrupted by the sounds of pummeling fists and maniacal " +
+                "laughter.",
+            image: "media/characters/bryan/Thumbnail-Bryan-Fury.png",
+            fullimage: "media/characters/bryan/bryan.png",
+            bg: "media/characters/bryan/bg-Fury.png"
+        },
+        {
+            id: "yoshimitsu",
+            name: "YOSHIMITSU",
+            title: "Mechanized Space Ninja",
+            country: "None (formely Japan)",
+            style: "Advanced Manji Ninjutsu",
+            description: "Yoshimitsu is an inheritor of the Manji Ninjutsu and current head of the Manji Clan, a group of chivalrous thieves active since the Sengoku period. Six months ago, Yoshimitsu accepted a request from an investor of the refugee relief project. The task was to find archives that contained information on the past doings of the Mishima Zaibatsu.After analyzing information that his clan members had gathered, Yoshimitsu is led to an old, underground cave. Legend has it that the Mishimas once used it for exorcisms.He scans the area using the technology built into his reinforced armor and continues down a dilapidated path. In the recesses of the cave, Yoshimitsu discovers the archives he has been looking " +
+                "for",
+            image: "media/characters/yoshimitsu/yoshimitsu_icon.png",
+            fullimage: "media/characters/yoshimitsu/Yoshimitsu_new.png",
+            bg: "media/characters/yoshimitsu/bg-Yoshimitsu.png",
+        },
+        {
+            id: "reina",
+            name: "REINA",
+            title: "Purple Lightning",
+            country: "Unknown",
+            style: "Unknown",
+            description: "Meet Reina, the mysterious fighter who uses lightning-quick moves to overwhelm anyone who dares face her. Other than the fact she's a student of the Mishima Polytechnical School, everything else about her is shrouded in mystery.",
+            image: "media/characters/reina/Thumbnail-Reina.png",
+            fullimage: "media/characters/reina/reina.png",
+            bg: "media/characters/reina/bg-Reina.png",
+        },
+    ];
+
+    const characterList = document.getElementById("characterList");
+    const characterInfo = document.getElementById("characterInfo");
+    const characterImg = document.getElementById("characterImg");
+    const greetings = document.getElementById("greet");
+    greetings.className = "choose_your_challenger";
+    greetings.innerHTML = `<p>Choose Your Challenger!</p>`
+
+    characters.forEach(character => {
+        const charElement = document.createElement("div");
+        charElement.className = "character_background";
+        charElement.style.backgroundImage = `url(media/characters/char_bg.png)`;
+        charElement.addEventListener("mouseover", () => mouseOver(charElement, character));
+        charElement.addEventListener("mouseout", () => mouseOut(charElement));
+        charElement.addEventListener("click", () => displayCharacter(character));
+
+        charElement.innerHTML = `<img src="${character.image}" alt="${character.name}" height="190"
+                width="133">`;
+        characterList.appendChild(charElement);
+    });
+
+    function mouseOver(charElement, character) {
+        charElement.style.backgroundImage = `url(${character.bg})`;
+        charElement.style.transform = "scale(1.1)";
+    }
+
+    function mouseOut(charElement) {
+        charElement.style.backgroundImage = `url(media/characters/char_bg.png)`;
+        charElement.style.transform = "scale(1)";
+    }
+
+    function displayCharacter(character) {
+        characterInfo.innerHTML = `
+            <h1>${character.name}</h1>
+            <h2>${character.title}</h2>
+            <p>Country of origin: <span class="text_highlight">${character.country}</span></p>
+            <p>Fighting style: <span class="text_highlight">${character.style}</span></p>
+            <p>${character.description}</p>
+        `;
+        characterImg.innerHTML = `<img src="${character.fullimage}" alt="${character.name}" width="750"
+              height="883">`;
+
+    }
+
+    // Инициализация первого персонажа
+    displayCharacter(characters[0]);
+
+    // Раскрытие меню
+    const dropdownToggle = document.getElementById("dropdown_toggle");
+    const dropdownMenu = document.getElementById("dropdown");
+
+    dropdownToggle.addEventListener("change", () => {
+        dropdownMenu.classList.toggle("open", dropdownToggle.checked);
+    });
+</script>
+</body>
+</html>
